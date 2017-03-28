@@ -1,0 +1,342 @@
+/*common css*/
+body{
+  background:#fff;
+  color:#333;
+  font:12px/22px Microsoft Yahei,simsun,sans-serif; 
+  -webkit-user-select: auto; 
+  -khtml-user-select: auto; 
+  -moz-user-select: auto; 
+  -o-user-select: auto; 
+  user-select: auto;
+  font-family: '宋体 Bold', '宋体';
+}
+.userNone{
+  -webkit-user-select: none; 
+  -khtml-user-select: none; 
+  -moz-user-select: none; 
+  -o-user-select: none; 
+  user-select: none;
+}
+
+a{color: #333;}
+
+.clearFix {*zoom: 1;}
+.clearFix:after {display: block;height: 0;clear: both;font-size: 0;content: "";}
+
+.fl{float: left;_display: inline;}
+.fr{float: right;_display: inline;}
+
+.textL{text-align: left !important;}
+.textC{text-align: center !important;}
+.textR{text-align: right !important;}
+
+.hide{display: none !important;}
+.show{display: block !important;}
+.invisible {visibility: hidden;}
+
+.dv{display: inline-block;*display: inline;*zoom:1;vertical-align: middle;}
+.di{display: inline-block;*display: inline;*zoom:1;}
+.cl{overflow: hidden;*zoom:1;}
+
+.textOverflow {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.textHide{text-indent: -9999em;overflow: hidden;display: inline-block;*display:inline;*zoom:1;}
+
+.btn{display: inline-block;*display: inline;*zoom:1;text-align: center;cursor: pointer;}
+.btn:hover{text-decoration: none;}
+
+.fw{font-weight: 700 !important;}
+.idt{text-indent: 2em !important;}
+.pointer{cursor: pointer!important;}
+
+.orange{color: #f60 !important;}
+.grey666{color: #666 !important;}
+
+.fs12{font-size: 12px !important;}
+.fs14{font-size: 14px!important;}
+.fs18{font-size: 18px !important;}
+.fs20{font-size: 20px !important;}
+.fs30{font-size: 30px !important;}
+
+.mr5{margin-right: 5px !important;}
+.mr10{margin-right:10px !important;}
+.mb5{margin-bottom: 5px !important;}
+.mb10{margin-bottom: 10px !important;}
+.mb20{margin-bottom: 20px !important;}
+.mt20{margin-top: 20px !important;}
+
+
+.pt10{padding-top: 10px !important;}
+.pl10{padding-left: 10px !important;}
+.pl20{padding-left: 20px !important;}
+.pl30{padding-left: 30px !important;}
+/*common css end*/
+
+/*mask*/
+.mask{
+  position: fixed;
+  _position:absolute;
+  width:100%;
+  height: 100%;
+  left: 0;
+  top:0;
+  background-color: #000;
+  opacity: 0.4;
+  filter:alpha(opacity=40);
+  z-index: 9;
+}
+/*ie6 position=fixed*/
+* html .mask{_height:expression(eval(document.documentElement.scrollHeight));}
+/*弹窗*/
+.popup{
+  position: fixed;
+  _position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 396px;
+  height: 266px;
+  margin: -133px 0 0 -198px;
+  z-index: 10;
+}
+
+/*弹窗框架——用户注册、账户设置*/
+.popupBox{
+  position: relative;
+  width: 720px;
+  height: 500px;
+
+}
+.popupBoxBd{position: relative;}
+.popupBoxBd .content{
+  width: 720px;
+  height: 500px;
+  background: #fff;
+}
+
+/*左侧导航*/
+.popupBoxBd .sidebar{
+  width: 138px;
+  height: 470px;
+  padding-top: 30px;
+  border-right: 1px solid #93c2e7;
+  background: #d5e4f1;
+}
+
+/*内容区域*/
+.formCont{
+  position: relative;
+  overflow: auto;
+  width: 540px;
+  height: 482px;
+  padding-right: 20px;
+}
+
+/*注册表单*/
+.formDl{}
+.formDl dt{
+  float: left;
+  width: 105px;
+  padding: 10px 5px;
+  font: 14px/32px microsoft yahei;
+  text-align: right;
+}
+.formDl dd{
+  float: left;
+  width: 410px;height:auto;
+  padding: 10px 5px;
+  line-height: 32px;
+  text-align: left;
+}
+
+/*input*/
+.formDl .text{
+  float: left;
+  width: 165px;
+  height: 24px;
+  padding: 3px 5px;
+  border: 1px solid #b9d1e5;
+  background: url(../i/C_loginInputBg.png) repeat-x;
+  color: #333;
+  font: 14px simsun;
+  line-height: 24px\9;
+}
+.formDl .textH{border: 1px solid #fcb892;}
+
+/*提示*/
+.formDl .hint{
+  float: left;
+  width: 200px;
+  height: 32px;
+  margin-left: 5px;
+  overflow: hidden;
+  color: #999;
+  font: 12px/32px simsun;
+}
+.formDl .line15{line-height: 16px;}
+.formDl .ok{
+  float: left;
+  width: 20px;
+  height: 32px;
+  margin-left: 5px;
+  background: url(../i/C_ico14.png) no-repeat left center;
+}
+.formDl .error{
+  float: left;
+  width: 20px;
+  height: 32px;
+  margin-left: 5px;
+  background: url(../i/C_ico13.png) no-repeat left center;
+  color: #f63;
+}
+
+/*密码强度*/
+.formDl .grade{
+  float: left;
+  width: 36px;
+  height: 18px;
+  margin: 7px 5px 0 0;
+  background: #ccc;
+  color: #fff;
+  font: 12px/18px simsun;
+  text-align: center;
+}
+.formDl .cur .orangeBg{background: #ff4302;}
+.formDl .cur .yellowBg{background: #ff8502;}
+.formDl .cur .greenBg{background: #8ec700;}
+
+/*验证码*/
+.formDl .verifyWrap{position: relative;}
+.formDl .verify{
+  width: 80px;
+  color: #666;
+  font: 18px simsun;
+  line-height: 24px\9;
+}
+.formDl .code .ok,.formDl .code .error{
+  position: absolute;
+  top: 10px;
+  left: 70px;
+  width: 2px;
+  padding-left: 20px;
+  background: url(../i/C_ico14.png) no-repeat left center;
+}
+.formDl .code .error{background: url(../i/C_ico13.png) no-repeat left center;}
+.formDl .verifyPic{width: 115px;height: 32px;}
+.formDl .verifyHint{float: left;width: 70px;padding-left: 10px;color: #106eb5;}
+
+/*手机注册发送验证码按钮*/
+.formDl .btnPhone{
+  width: 122px;
+  height: 32px;
+  margin-top: 10px;
+  background: url(../i/C_btn12268.png) no-repeat 0 0;
+  color: #1974b9;
+  font: 12px/30px simsun;
+  text-align: center;
+}
+.formDl .btnPhoneTime{
+  width: 122px;
+  height: 32px;
+  margin-top: 10px;
+  background: url(../i/C_btn12268.png) no-repeat 0 -35px;
+  color: #abaaaa;
+  font: 14px/30px simsun;
+  text-align: center;
+  cursor: default;
+}
+
+/*手机注册发送验证码提示、弹窗*/
+.phoneHint{position: relative;}
+.receive{color: #f60;font: 12px/30px simsun;}
+.prompt{
+  position: absolute;
+  left: 0px;
+  top: 23px;
+  z-index: 2;
+  width: 230px;
+}
+.prompt .topBg{
+  width: 230px;
+  height: 10px;
+  overflow: hidden;
+  background: url(../i/C_promptBg.png) no-repeat 0 0;
+}
+.prompt .middleBg{
+  width: 185px;
+  padding: 5px 10px 5px 33px;
+  border-left: 1px solid #edbe8b;
+  border-right: 1px solid #edbe8b;
+  background: #fff3e6;
+  color: #630;
+  font: 12px/22px simsun;
+}
+.prompt li{list-style: decimal;}
+.prompt .bottomBg{
+  width: 230px;
+  height: 5px;
+  background: url(../i/C_promptBg.png) no-repeat 0 -15px;
+}
+
+.seeReason{
+  position:absolute;
+  left:125px;
+  top:10px;
+  height:139px;
+  width:400px
+}
+
+
+
+
+/*弹窗——用户服务条款、实名认证要求*/
+.login_mask{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  width: 720px;
+  height: 500px;
+  background-color: #000;
+  opacity: 0.4;
+  filter:alpha(opacity=40);
+}
+.login_popup{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 10;
+  width: 410px;
+  height: 310px;
+  margin: -140px 0 0 -205px;
+  background: #fff;
+}
+.login_popup_hd{
+  height: 30px;
+  padding-left: 30px;
+  background: #2f8fd8 url(../i/C_login_popup.png) no-repeat 10px center;
+  color: #fff;
+  font: 14px/30px microsoft yahei;
+}
+.login_popup_hd .close{
+  position: absolute;
+  top: 0px;
+  right: -30px;
+  width: 30px;
+  height: 30px;
+  background: url(../i/C_login_close.png) no-repeat 0 0;
+}
+.login_popup_hd .close:hover{background: url(../i/C_login_close.png) no-repeat -35px 0;}
+
+.login_popup_bd{
+  width: 410px;
+  height: 280px;
+  overflow: hidden;
+}
+
+/*用户服务条款*/
+.login_popup_bd .deal{
+  width: 390px;
+  height: 260px;
+  padding: 10px 10px 0;
+  overflow: auto;
+}
+

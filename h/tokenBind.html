@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../c/reset.css">
+	<link rel="stylesheet" type="text/css" href="http://1013v2.qpdiy.com/statics/c/C_account.css">
+	<link rel="stylesheet" type="text/css" href="../c/base.css">
+    <link rel="stylesheet" type="text/css" href="../c/C_account_v2.1.css">
+	<title>令牌绑定</title>
+</head>
+<body>
+<!-- oncontextmenu="return false" ondragstart="return false" -->
+<script type="text/javascript">
+	<!-- // 屏蔽右键
+	// try{
+	// 	document.oncontextmenu=function(e){return false;}
+	// }catch (e) {
+		
+	// } -->
+    window.STATICS_PATH = 'http://1013v2.qpdiy.com/statics/';
+ </script>
+<script style="text/javascript" src="../j/lib/require-jquery.js"></script>
+<script style="text/javascript" src="http://1013v2.qpdiy.com/statics/j/C_yp.min.js"></script>
+
+<div class="popupBox" style="display:none" id="popupBox">
+  <div class="popupBoxBd">
+    <div class="content clearFix">
+      <!-- 用户设置TOP -->
+      <div class="userinfo clearFix">
+        <!-- 用户信息 -->
+        <div class="info fl">
+          <div class="pic fl mr10"><img src="http://1013v2.qpdiy.com/statics/images/avatar_1_1.png"></div>
+          <div class="text fl">
+            <p class="mb5"><span class="dv mr5">bfpi523973</span><span class="grade dv"></span></p>
+            <p class="grey666">数字ID：<span id="numId">23072836</span></p>
+            <p class="grey666">魅力值：<span>0</span></p>
+          </div>
+        </div>
+        <!-- 用户信息 End -->
+        <!-- 未认证 -->
+        <div class="cont fr pt10" style="display:none" id="noRealname">
+          <span class="depict"><span class="orange">您的账户安全性过低！</span>还未进行过实名认证？</span>
+          <a class="btn11040 btn" id="btn_open_realname">立即去认证</a>
+        </div>
+        <!-- 未认证 End -->
+        <!-- 已认证 -->
+        <div class="cont fr"  id="sureRealname">
+          <dl>
+            <dt>资料完整度：</dt>
+            <dd>
+              <span class="rang dv">
+                <div class="rangLeft fl"></div>
+                <div class="rangMiddle fl">
+                  <div class="bar">
+                    <div class="barLeft fl"></div>
+                    <div class="barMiddle fl" style="width:50px;" id="completeness">
+                      <p class="textC">25%</p>
+                    </div>
+                    <div class="barRight fl png"></div>
+                  </div>
+                </div>
+                <div class="rangRight fl"></div>
+              </span>
+            </dd>
+            <dt>账户安全级别：</dt>
+            <dd id="safeRank">
+              <i class="allstar20 png"></i>
+              <span class="orange fs30">43</span>分
+            </dd>
+          </dl>
+        </div>
+        <!-- 已认证 End -->
+      </div>
+      <!-- 用户设置TOP End -->
+      <!-- tab -->
+      <div class="sidebar fl">
+        <ul id="leftNav">
+          <li class="cur"><a href="javascript:;">编辑资料</a></li>
+          <li  ><a href="javascript:;">修改密码</a></li>
+          <li  ><a href="javascript:;">安全设置</a></li>
+          <li><a href="javascript:;">修改头像</a></li>
+        </ul>
+      </div>
+      <!-- tab End -->
+      <!-- 编辑资料 -->
+      <form class="formCont fr" id="editBox">
+        <!-- <input type="hidden" name="from" value="lobby"> -->
+        <dl class="formDl clearFix">
+          <dt><span class="orange">*</span>身份证号：</dt>
+          <dd>
+                          <span>51250119******5172</span>
+                      </dd>
+          <dt>姓名：</dt>
+          <dd>
+                        <span>吴晗铭</span>
+                      </dd>
+          <dt>性别：</dt>
+          <dd id="edit_sex">
+            <label class="mr10"><input type="radio" class="radio" name="info[sex]" checked value="1"><span>男</span></label>
+            <label><input type="radio" class="radio" name="info[sex]"  value="0"><span>女</span></label>
+          </dd>
+          <dt>生日：</dt>
+          <dd>
+            <!-- php -->
+            <select class="short dv" id="edit_birth_year" name="info[year]">
+              <option value="1968" >1968</option><option value="1969" >1969</option><option value="1970" >1970</option><option value="1971" >1971</option><option value="1972" >1972</option><option value="1973" >1973</option><option value="1974" >1974</option><option value="1975" >1975</option><option value="1976" >1976</option><option value="1977" >1977</option><option value="1978" >1978</option><option value="1979" >1979</option><option value="1980" >1980</option><option value="1981" >1981</option><option value="1982" >1982</option><option value="1983" >1983</option><option value="1984" >1984</option><option value="1985" >1985</option><option value="1986" >1986</option><option value="1987" >1987</option><option value="1988" >1988</option><option value="1989" >1989</option><option value="1990" >1990</option><option value="1991" >1991</option><option value="1992" >1992</option><option value="1993" >1993</option><option value="1994" >1994</option><option value="1995" >1995</option><option value="1996" >1996</option><option value="1997" >1997</option><option value="1998" >1998</option><option value="1999" >1999</option><option value="2000" >2000</option><option value="2001" >2001</option><option value="2002" >2002</option><option value="2003" >2003</option><option value="2004" >2004</option><option value="2005" >2005</option><option value="2006" >2006</option><option value="2007" >2007</option><option value="2008" >2008</option><option value="2009" >2009</option><option value="2010" >2010</option><option value="2011" >2011</option><option value="2012" >2012</option><option value="2013" >2013</option><option value="2014" >2014</option><option value="2015" >2015</option><option value="2016" >2016</option>            </select>
+            <span class="dv">年</span>
+            <!-- php -->
+            <select class="short dv" id="edit_birth_month" name="info[month]">
+              <option value="1" >1</option><option value="2" >2</option><option value="3" >3</option><option value="4" >4</option><option value="5" >5</option><option value="6" >6</option><option value="7" >7</option><option value="8" >8</option><option value="9" >9</option><option value="10" >10</option><option value="11" >11</option><option value="12" >12</option>            </select>
+            <span class="dv">月</span>
+            <!-- php -->
+            <select class="short dv" id="edit_birth_day" name="info[day]">
+              <option value="1" >1</option><option value="2" >2</option><option value="3" >3</option><option value="4" >4</option><option value="5" >5</option><option value="6" >6</option><option value="7" >7</option><option value="8" >8</option><option value="9" >9</option><option value="10" >10</option><option value="11" >11</option><option value="12" >12</option><option value="13" >13</option><option value="14" >14</option><option value="15" >15</option><option value="16" >16</option><option value="17" >17</option><option value="18" >18</option><option value="19" >19</option><option value="20" >20</option><option value="21" >21</option><option value="22" >22</option><option value="23" >23</option><option value="24" >24</option><option value="25" >25</option><option value="26" >26</option><option value="27" >27</option><option value="28" >28</option><option value="29" >29</option><option value="30" >30</option>            </select>
+            <span class="dv">日</span>
+          </dd>
+          <dt>血型：</dt>
+          <dd>
+            <select class="short" name="info[bloodtype]">
+              <option value="0" >A</option>
+              <option value="1" >B</option>
+              <option value="2" >AB</option>
+              <option value="3" >O</option>
+              <option value="4" >其他</option>
+              <option value="5" >不明</option>
+            </select>
+          </dd>
+          <dt>居住地：</dt>
+          <dd>
+            <div id="pca" class='pca' style="width: 67px;"></div>
+          </dd>
+          <dt>QQ：</dt>
+          <dd>
+            <input type="text" class="text" value="" data-valid="{'type':'qq', 'require': false}" name="info[qq]">
+            <div class="png"></div>
+            <div class="hint"></div>
+          </dd>
+         <!--  <dt>手机号码: </dt>
+          <dd>
+            <input type="text" class="text" value="" data-valid="{'type':'mobile', 'require': false}" name="info[phone]">
+            <div class="png"></div>
+            <div class="hint"></div>
+          </dd> -->
+          <dt></dt>
+          <dd><a class="btnOrange11035 btn" href="javascript:;" id="btn_submit_editBox">保&nbsp;&nbsp;存</a></dd>
+        </dl>
+      </form>
+      <!-- 编辑资料 End -->
+      <!-- 修改密码 -->
+      <form class="formCont fr" style="display:none;" id="pwdBox">
+        <input type="hidden" name="from" value="lobby">
+        <dl class="formDl clearFix mt20">
+          <dt>旧密码：</dt>
+          <dd>
+            <input type="password" class="text" data-valid="{'type':'txt', 'tips': ['请输入密码', '']}" id="txt_newReg_oldpwd" name="oldpwd">
+            <div class="png"></div>
+            <div class="hint"></div>
+          </dd>
+          <dt>新密码：</dt>
+          <dd>
+            <input type="password" class="text" data-valid="{'type':'password', 'original':'#txt_newReg_oldpwd'}" id="txt_newReg_pwd" name="newpwd">
+            <div class="png"></div>
+            <div class="hint">8-40个字符，请使用字母加数字或符号的组合密码</div>
+            <!-- <div class="hint hide" id="icoList_newReg_pwd">
+              <div><p class="grade orangeBg">低</p></div>
+              <div><p class="grade yellowBg">中</p></div>
+              <div><p class="grade greenBg">高</p></div>
+            </div> -->
+          </dd>
+          <dt>再次输入：</dt>
+          <dd>
+            <input type="password" class="text" data-valid="{'type':'passwordagain', 'original':'#txt_newReg_pwd'}" name="newpwdAgain">
+            <div class="png"></div>
+            <div class="hint">再次输入密码</div>
+          </dd>
+          <dt></dt>
+          <dd><a class="btnOrange11035 btn" href="javascript:;" id="btn_submit_pwdBox">提&nbsp;&nbsp;交</a></dd>
+        </dl>
+      </form>
+      <!-- 修改密码 End -->
+      <!-- 安全设置 -->
+      <div class="formCont fr" style="display:none;" id="safeBox">
+        <img src="../i/back.png" class="back" >
+        <div class="securit">
+        <!-- 手机-->
+        <div class="Pho clearfix">
+
+          	<!-- 未绑定手机号 -->
+          	<div class="task1 unbound unboundPhone clearfix" data-index='0'>
+                <div class="boundPhoneFont">绑定手机</div>
+                <img src="../i/phone.png" class="png phonePic">
+          		<div class="description">
+                   <span class="active">【绑定】</span>
+                   绑定手机，让账号更加安全，请勿随意泄露手机号，以防不法分子利用造成个人损失。
+                </div>
+          	    <a href="#" class="boundPhone">
+          			绑定手机
+          		</a>
+          	</div>
+          	<!-- 未绑定手机号 end -->
+
+          	<!-- 开始绑定手机号步骤 -->
+            <div class="task2" data-index='1'>
+                <div class="blueHeader1 clearfix">
+                    <div class="step highlight">1.手机验证</div>
+                    <div class="step">2.完成绑定</div>
+                </div>
+              	<div class="boundPhoneSteps clearfix" id="boundPhoneSteps">
+    	            <!-- 手机号+验证码 -->
+    	            <div class="startBoundPhone">
+    		            <div class="phoneNumber clearfix">
+    		            	<div class="phoFont">手机号码：</div>
+    		            	<input type="text" class="telephone Tel">
+                            <div class="vali"></div>
+    		            </div>
+    		            <div class="verificationCode clearfix">
+    	                    <div class="codeFont">验证码：</div>
+    		            	<input type="text" class="inputCode code" maxlength="4">
+    		            	<div class="sendVerifi">发送验证码</div>
+                            <div class="vali"></div>
+    		            </div>
+    		            <!-- 绑定手机按钮 -->
+    		            <div class="boundPhoneBtn">绑定手机</div>
+    		        </div>
+                </div>
+              	<!-- 开始绑定手机号步骤end -->
+
+                <!-- 完成绑定手机！ -->
+                <div class="finishBoundPhone">
+                   <div class="imgBox">
+                      <img src="../i/finish.png">
+                    </div>
+                    <p>恭喜您，绑定成功，</p>
+                    <p>感谢您的使用，祝您游戏愉快！</p>
+                    <div class="confirm1">确定</div>
+                </div>
+            </div>
+            <!-- 开始绑定手机号步骤end -->
+
+          	<!-- 已绑定手机号 -->
+          	<div class="task3 alreadyBound alreadyBoundPhone clearfix" data-index='2'>
+                <div class="boundPhoneFont">绑定手机</div>
+                <img src="../i/phone.png" class="png phonePic">
+          		<div class="description"><p>您已绑定手机（<span class="secretNum">158*******12</span>)</p>
+              		<a href="#" class="revisePhone" id="revisePhone" style="display: inline-block;">
+                                    修改绑定手机
+                    </a>
+                    <a href="#" class="revisePhone" id="releasePhone" style="display: inline-block;">
+                        解绑手机
+                    </a>
+              		<div class="warn clearfix">
+              		  <div class="warningPic png"></div>
+              		  <a class="phoneQuestion">原手机已丢失/不能使用？
+                        <div class="tips">  
+                            <p class="line1" style="margin-left: 15px;">原手机丢失或无法使用请联系客服人员，提供您的相关资料进行更改。</p>
+                            <p class="line2">客服电话：<span class="servicePho">400-111-0505</span></p>
+                        </div>
+                      </a>
+              		</div>
+          	   </div>
+            </div>
+          	<!-- 已绑定手机号 end -->
+
+            <!-- 修改绑定的手机号 -->
+            <div class="task4 modifyPho" data-index="3">
+                <div class="blueHeader2 clearfix">
+                    <div class="modifyStep highlight">1.安全验证</div>
+                    <div class="modifyStep">2.输入手机号</div>
+                    <div class="modifyStep">3.修改成功</div>
+                </div>
+                <!-- 原手机号码验证 -->
+                <div class="current">
+                    <div class="phoneNumber clearfix">
+                        <div class="phoFont">手机号码：</div>
+                        <p class="secret">15101215591</p>
+                        <div class="vali"></div>
+                    </div>
+                    <div class="verificationCode clearfix">
+                        <div class="codeFont">验证码：</div>
+                        <input type="text" class="inputCode currentCode" maxlength="4">
+                        <div class="sendVerifi">发送验证码</div>
+                        <div class="vali"></div>
+                    </div>
+                    <!-- 下一步按钮 -->
+                    <div class="next">下一步</div>
+                </div>
+                <!-- 原手机号验证end -->
+
+                <!-- 新手机号验证 -->
+                <div class="now">
+                    <p class="succe">验证成功！</p>
+                    <div class="phoneNumber clearfix">
+                        <div class="phoFont">新手机号码：</div>
+                        <input type="text" class="telephone nowTel">
+                        <div class="vali"></div>
+                    </div>
+                    <div class="verificationCode clearfix">
+                        <div class="codeFont" style="padding-left: 27px;">验证码：</div>
+                        <input type="text" class="inputCode nowCode">
+                        <div class="sendVerifi">发送验证码</div>
+                        <div class="vali"></div>
+                    </div>
+                    <!-- 新手机号验证的确定按钮 -->
+                    <div class="nowBtn">确定</div>
+                </div>
+                <!-- 新手机号验证 end -->
+
+                <!-- 完成绑定新手机 -->
+                <div class="finishBoundNewPhone">
+                   <div class="imgBox">
+                      <img src="../i/finish.png">
+                    </div>
+                    <p>恭喜您，手机号码已经修改成功，以后请使用新手机号登录游戏，感谢您的使用，祝您游戏愉快！</p>
+                    <div class="confirm2">确定</div>
+                </div>
+                <!-- 完成绑定新手机 end -->
+            </div>
+            <!-- 修改绑定的手机号end-->
+
+            <!-- 解绑手机的div-->
+            <div class="item4" data-index='4'>
+            <div class="blueHeader4 clearfix release">
+                <div class="step highlight">1.手机验证</div>
+                <div class="step">2.完成解绑</div>
+            </div>
+            <div class="boundPhoneSteps clearfix release" id="releasePhoneSteps">
+                <!-- 手机号+验证码 -->
+                <div class="outPhoneSteps">
+                    <div class="tokenPho">
+                        <div class="phoneNumber clearfix">
+                            <div class="phoFont">手机号码：</div>
+                            <p class="secret">15899566321</p>
+                            <div class="ToksendVerifi" id="ToksendVerifi2">发送验证码</div>
+                            <div class="vali"></div>
+                        </div>
+                        <div class="verificationCode clearfix">
+                            <div class="codeFont">验证码：</div>
+                            <input type="text" class="inputCode tokenCode" maxlength="4">
+                            <div class="vali"></div>
+                        </div>
+                        <!-- 验证按钮 -->
+                        <div class="verifyPhoneBtn2">立即验证</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 开始绑定手机号步骤end -->
+
+            <!-- 完成绑定手机！ -->
+            <div class="finishUnBoundPhone">
+                <div class="imgBox">
+                    <img src="http://192.168.141.72:8087/statics//i/account/finish.png">
+                </div>
+                <p>恭喜您，解绑手机成功，</p>
+                <p>感谢您的使用，祝您游戏愉快！</p>
+                <div class="confirm1">确定</div>
+            </div>
+        </div>
+        <!-- 解绑手机的div end-->
+
+
+        </div>
+        <!-- 手机end-->
+
+          <!-- 分割线 -->
+          <div class="devide"></div>
+
+        <!-- 令牌 -->
+        <div class="Tok clearfix">
+            <!-- 未绑定令牌 -->
+          	<div class="unbound unboundToken clearfix" data-index="5">
+                <div class="boundTokenFont">绑定令牌</div>
+                <img src="../i/token.png" class="png token">
+          		<div class="description">
+                    <span class="active">【绑定】</span>
+                    绑定令牌，让账号更加安全，请勿随意泄露手机号，以防不法分子利用造成个人损失。
+                </div>
+          	    <a href="#" class="boundToken">
+          			绑定令牌
+          		</a>
+          	</div>
+          	<!-- 未绑定令牌  end -->
+
+            <!-- 开始绑定令牌步骤 -->
+            <div class="item1 " data-index="6">
+                <div class="blueHeader2 clearfix">
+                    <div class="tokenstep highlight">1.安全验证</div>
+                    <div class="tokenstep">2.下载令牌</div>
+                    <div class="tokenstep">3.绑定账号</div>
+                    <div class="tokenstep">4.完成绑定</div>
+                </div>
+                <div class="boundTokenSteps clearfix">
+                    <!-- 绑定令牌步骤之安全验证 -->
+                    <div class="startBoundToken">
+                        <div class="veriFont">验证方式：
+                            <select id="select1" name="myselect1" >
+                                <option value="0">手机号</option>
+                                <option value="1">身份证号</option>
+                            </select>
+                            <img src="../i/ask.png">
+                        </div>
+                        <!-- 令牌之手机号验证 -->
+                        <div class="tokenPho">
+                            <div class="phoneNumber clearfix">
+                                <div class="phoFont">手机号码：</div>
+                                <p class="secret">15527452122</p>
+                                <div class="ToksendVerifi ToksendVerifi1" >发送验证码</div>
+                                <div class="vali"></div>
+                            </div>
+                            <div class="verificationCode clearfix">
+                                <div class="codeFont">验证码：</div>
+                                <input type="text" class="inputCode tokenCode" maxlength="4">
+                                <div class="vali"></div>
+                            </div>
+                            <!-- 验证按钮 -->
+                            <div class="verifyPhoneBtn1">立即验证</div>
+                        </div>
+                        <!-- 令牌之手机号验证 end-->
+
+                        <!-- 令牌之身份证号验证 -->
+                        <div class="tokenIdentify">
+                            <div class="identifyNumber clearfix">
+                                <div class="identifyFont">身份证号：</div>
+                                <p class="secret">620102199201030654</p>
+                                <div class="vali"></div>
+                            </div>
+                            <div class="checkNumber clearfix">
+                                <div class="checkFont">核对号码：</div>
+                                <input type="text" class="identify identi2" maxlength="18">
+                                <div class="vali"></div>
+                            </div>
+                            <!-- 验证按钮 -->
+                            <div class="verifyCardBtn1">立即验证</div>
+                        </div>
+                        <!-- 令牌之身份证号验证 end-->
+                    </div>
+                    <!-- 绑定令牌步骤之安全验证  end-->
+
+                    <!-- 绑定令牌步骤之下载令牌 -->
+                    <div class="download">
+                        <p class="succe">验证成功！</p>
+                        <p class="scanEWMTips">请使用手机浏览器或者微信扫码功能扫描下方二维码，下载“边锋安全中心”手机软件，下载安装完成后，点击下一步绑定账号</p>
+                        <div class="ewmBox">
+                           <img src="../i/ewm.png" class="ewm">
+                        </div>
+                        <div class="scanNext">下一步</div>
+                    </div>
+                    <!-- 绑定令牌步骤之下载令牌 end-->
+
+                    <!-- 绑定令牌步骤之绑定账号 -->
+                    <div class="getDynamic">
+                        <p class="getPassTips">打开“锋趣安全中心”手机软件，点击“扫一扫”按钮，扫描下方二维码，获得动态口令。</p>
+                        <div class="ewmBox">
+                           <img src="../i/ewm.png" class="ewm">
+                        </div>
+                        <div class="dynamicPass clearfix">
+                            <p class="dynamicFont">动态口令：</p>
+                            <input class="dynamicPassInput" type="text" maxlength="6">
+                            <div class="vali"></div>
+                        </div>
+                        <div class="finishDynamic">完成绑定</div>
+                    </div>
+                    <!-- 绑定令牌步骤之绑定账号 end-->
+
+                     <!-- 绑定令牌步骤之完成绑定 -->
+                    <div class="finishToken">
+                        <div class="imgBox">
+                            <img src="../i/finish.png">
+                        </div>
+                        <p class="celebrate">恭喜您，您已成功绑定安全令牌！</p>
+                        <p class="celebrateTips">安全令牌是账号登录前必须验证的信息，请您妥善保管。如需更换手机，请记得及时解绑。手机如有遗失、损坏等特殊情况请联系客服找回。</p>
+                        <div class="confirm3">确定</div>
+                    </div>
+                    <!-- 绑定令牌步骤之绑定账号 end-->
+                </div>
+            </div>
+            <!-- 开始绑定令牌步骤 end-->
+
+          	<!-- 已绑定令牌 -->
+          	<div class="alreadyBound alreadyBoundToken" data-index="7">
+                <div class="boundTokenFont">绑定令牌</div>
+                <img src="../i/token.png" class="png token">
+          		<div class="description"><p>您已绑定手机令牌<p>
+                    <a href="#" class="reviseToken">
+                        解绑令牌
+                    </a>
+                    <div class="warn clearfix">
+                      <div class="warningPic png"></div>
+                      <a class="TokenQuestion">绑定令牌失败/解绑令牌失败？
+                        <div class="tips">  
+                            <p class="line1">绑定令牌失败/解绑令牌失败请联系客服人员，提供您的相关资料进行更改。</p>
+                            <p class="line2">客服电话：<span class="servicePho">400-111-0505</span></p>
+                        </div>
+                      </a>
+                    </div>
+                </div>
+          	</div>
+          	<!-- 已绑定令牌 end -->
+
+            <!-- 解绑令牌步骤-->
+            <div class="item2" style="display: none;" data-index="8">
+                <div class="blueHeader3 clearfix">
+                    <div class="outtoken highlight" style="width: 240px">1.安全验证</div>
+                    <div class="outtoken" style="width: 240px">2.解绑成功</div>
+                </div>
+                <div class="outTokenSteps">
+
+                    <!-- 解绑令牌之安全验证 -->
+                    <div class="startBoundToken">
+                        <div class="veriFont">验证方式：
+                            <select id="select2" name="myselect2">
+                                <option value="0">手机号</option>
+                                <option value="1">身份证号</option>
+                            </select>
+                            <img src="../i/ask.png">
+                        </div>
+                        <!-- 令牌之手机号验证 -->
+                        <div class="tokenPho">
+                            <div class="phoneNumber clearfix">
+                                <div class="phoFont">手机号码：</div>
+                                <p class="secret">15527452122</p>
+                                <div class="ToksendVerifi ToksendVerifi2">发送验证码</div>
+                                <div class="vali"></div>
+                            </div>
+                            <div class="verificationCode clearfix">
+                                <div class="codeFont">验证码：</div>
+                                <input type="text" class="inputCode tokenCode" maxlength="4">
+                                <div class="vali"></div>
+                            </div>
+                            <!-- 验证按钮 -->
+                            <div class="verifyPhoneBtn3">立即验证</div>
+                        </div>
+                        <!-- 令牌之手机号验证 end-->
+
+                        <!-- 令牌之身份证号验证 -->
+                        <div class="tokenIdentify">
+                            <div class="identifyNumber clearfix">
+                                <div class="identifyFont">身份证号：</div>
+                                <p class="secret">620102199201030654</p>
+                                <div class="vali"></div>
+                            </div>
+                            <div class="checkNumber clearfix">
+                                <div class="checkFont">核对号码：</div>
+                                <input type="text" class="identify identi2" maxlength="18">
+                                <div class="vali"></div>
+                            </div>
+                            <!-- 验证按钮 -->
+                            <div class="verifyCardBtn2">立即验证</div>
+                        </div>
+                        <!-- 令牌之身份证号验证 end-->
+                    </div>
+                    <!-- 解绑令牌之安全验证 end -->
+
+                    <!-- 验证成功 -->
+                    <!-- <div class="outVerifySucce">
+                        <p class="succe">验证成功!</p>
+                        <div class="lockImg">
+                            <img src="../i/lock.png" class="lock">
+                        </div>
+                        <div class="Unbundling">解绑令牌</div>
+                    </div> -->
+                    <!-- 验证成功end -->
+
+                    <!-- 解绑成功 -->
+                    <div class="outSucsess">
+                        <div class="outLockImg">
+                            <img src="../i/outLock.png" class="outLock">
+                        </div>
+                        <p class="succe" style="font-size: 16px;padding-bottom: 30px;">解绑令牌成功！</p>
+                        <div class="confirm4">确定</div>
+                    </div>
+                    <!-- 解绑成功end -->
+
+                </div>
+            </div>
+          <!-- 解绑令牌步骤 end -->
+
+        </div>
+        <!-- 令牌end -->
+      </div>
+      <!-- 安全设置 End -->
+      <!-- 修改头像 -->
+      <div class="formCont fr" style="display:none;">
+        <div class="uploadPic">
+          <div class="" id="flashType">
+            <iframe src="about:blank" name="upload_target" class="hide"></iframe>
+            <div class="Midbtn mt15" id="btn_upload_submit">上传照片
+              <input type="file" id="flash_file" name="head_img" class="" />
+            </div>
+            <div id="avatar_editor_layer" class="picLayer mt5"><div id="avatar_editor" class="avatar_editor"></div></div>
+            <form id="pic_upload_form" class="hide" enctype="multipart/form-data" method="post" name="upform" target="upload_target" action="http://1013v2.qpdiy.com/index.php?c=ucenter&a=uploadFlashAvatar"></form>
+
+          </div>
+        </div>
+      </div>
+      <!-- 修改头像 End -->
+    </div>
+
+    <!-- 保存成功 -->
+    <div class="saveSuccess clearFix" style="display:none;" id="saveSuccess">
+      <iframe frameborder="0" scrolling="no" style="width:150px; height:52px; position:absolute; top:0; left:0; z-index:-1; filter:alpha(opacity=0); -moz-opacity:0;"></iframe>
+      <b class="ico_ok dv fl"></b>
+      <span>保存成功</span>
+    </div>
+    <!-- 保存成功 End -->
+
+    <!-- 保存失败 -->
+    <div class="saveSuccess clearFix" style="display:none;" id="saveError">
+      <iframe frameborder="0" scrolling="no" style="width:150px; height:52px; position:absolute; top:0; left:0; z-index:-1; filter:alpha(opacity=0); -moz-opacity:0;"></iframe>
+      <b class="ico_error dv fl"></b>
+      <span>保存失败</span>
+    </div>
+    <!-- 保存失败 End -->
+
+    <!-- mask -->
+    <div class="login_mask" style="display:none;"></div>
+    <!-- mask End -->
+    <!-- 实名认证要求 弹窗 -->
+    <div class="login_popup" style="display:none;" id="realnameBox">
+      <iframe frameborder="0" scrolling="no" style="width:410px; height:310px; position:absolute; top:0; left:0; z-index:-1; filter:alpha(opacity=0); -moz-opacity:0;"></iframe>
+      <div class="login_popup_hd">
+        实名认证要求
+        <a class="close btn" href="javascript:;" id="btn_close_realnameBox"></a>
+      </div>
+      <form class="login_popup_bd">
+        <div class="titText">
+          <p class="hd">实名认证要求</p>
+          <p class="idt">根据2010年8月1日文化部推行的《网络游戏管理暂行办法》，<span class="orange">网络游戏 用户需使用有效身份证件进行实名注册</span>，为保证流畅游戏体验，享受健康游戏生活，请各位边锋玩家尽快完成实名注册！</p>
+        </div>
+        <dl class="formDl userForm mb10 clearFix">
+          <dt>身份证号码：</dt>
+          <dd>
+            <input type="text" class="text" data-valid="{'type': 'cardid'}" name="cardid">
+            <div class="png"></div>
+            <div class="hint"></div>
+          </dd>
+          <dt>真实姓名：</dt>
+          <dd>
+            <input type="text" class="text" data-valid="{'type': 'realname'}" name="realname">
+            <div class="png"></div>
+            <div class="hint"></div>
+          </dd>
+        </dl>
+        <div class="textC"><a class="btnGreen11035 btn" href="javascript:;" id="btn_submit_realnameBox">提交</a></div>
+      </form>
+    </div>
+    <!-- 实名认证要求 弹窗 End -->
+  </div>
+</div>
+<div id="loading" class="popupBox" style="height:235px;padding-top:110px;text-align:center">
+  <img src="http://1013v2.qpdiy.com/statics//i/C_bloading.gif" alt="加载中" border="0" style="cursor: hand; display: block; margin: 0 auto 30px;" width="68" height="68">
+  正在请求数据中，请稍后。
+</div>
+
+<script type="text/javascript" src="http://1013v2.qpdiy.com/statics/j/swfobject_modified.js"></script>
+<script type="text/javascript" src="http://1013v2.qpdiy.com/statics/j/C_avatar.js"></script>
+<script type="text/javascript">
+  var g_realname = 1;
+  var province = 0;
+  var city = 0;
+  var area = 0;
+
+  // ajax url
+    //   var oPageUrl = {
+    //     authentication: '?c=ucenter&a=doRealNameAuth'
+    //     , edit: '?c=ucenter&a=infoEdit'
+    //     , pwd: '?c=ucenter&a=modifyPasswd'
+    //     , codeUrl: '?c=ucenter&a=sendCaptcha'
+    //     , bindLock: '?c=ucenter&a=bindAccount'
+    //     , modifyLock: '?c=ucenter&a=bindSecurity'
+    // };
+
+  window.oPageConfig = {
+          oUrl: {
+              send: '/send'   //初始绑定手机号
+            , modify: '/modify' //修改原手机号
+            , newPhone: 'newPhone' //添加新手机号
+            , getCode: '?c=ucenter&a=sendCode'
+            , verify: '?c=ucenter&a=verify' // 验证
+            , bind: '?c=ucenter&a=bind' //绑定令牌
+        },
+        oData:{
+            phone_bind: 0  //手机 0：未绑定  1：已绑定 2：已修改
+          , token_bind: 0   //令牌 0：未绑定  1：已绑定 
+        }
+    }
+</script>
+<script type="text/javascript" src="http://1013v2.qpdiy.com/statics/j/C_account_new.js?2014032701"></script>
+
+<!-- 测试文件 -->
+<script src="../j/test/index.js"></script>
+
+<!-- 后期修改功能的index.js -->
+<script src="../j/C_account_v2.1.js"></script>
+
+ <!-- [if IE 6]>
+    <script src="../j/lib/png.js"></script>
+    <script>
+      EvPNG.fix('.png');
+      alert(211)
+    </script>
+    <![endif] -->
+</body>
+</html>
