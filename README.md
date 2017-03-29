@@ -37,25 +37,25 @@
 
 ## 1. 首先就是这些所有的模块中，要每1s动态的查看到它们是显示还是隐藏，因为当点击返回按钮时，要隐藏当前显示的子界面，将原来的父界面重新显示，同时将原来子界面填写的表单内容清空，header高亮重新回到第一个位置 ##
 
-            var arr = [];
-			var newArr = []; //存放最终的数组
-            var result = {};
-            var timer1 = setInterval(function(){ //每1s去查看安全设置当前显示的元素是，把它放入数组中
-                $('.securit').children().children().each(function() {
-                    if ($(this).css('display') == 'block') {
-                        arr.push($(this).data('index'));
-                        for (var j = 0; j < arr.length; j++) { //去除这个过程中重复的元素
-                             if(!result[arr[j]]){
-                                 newArr.push(arr[j]);
-                                 result[arr[j]] = 1;
-                             }
-                            //if (newArr.indexOf(arr[j]) == -1) {
-                            //   newArr.push(arr[j]);
-                            //}
-                        }
-                    }
-                });
-           },1000); 
+        var arr = [];
+		var newArr = []; //存放最终的数组
+        var result = {};
+        var timer1 = setInterval(function(){ //每1s去查看安全设置当前显示的元素是，把它放入数组中
+             $('.securit').children().children().each(function() {
+                 if ($(this).css('display') == 'block') {
+                     arr.push($(this).data('index'));
+                       for (var j = 0; j < arr.length; j++) { //去除这个过程中重复的元素
+                           if(!result[arr[j]]){
+                                newArr.push(arr[j]);
+                                result[arr[j]] = 1;
+                            }
+                           //if (newArr.indexOf(arr[j]) == -1) {
+                           //   newArr.push(arr[j]);
+                           //}
+                       }
+                   }
+              });
+        },1000); 
 
 
 这里要注意的是，上述代码注释的部分原来也是在遍历原数组时，删除重复的元素，只保留其一的方法，但是因为IE浏览器不支持indexOf的方法，所以采用了其他的方法来删除重复元素。这里有一篇博客数组去重写的挺好的，可以看看：[http://www.cnblogs.com/lhyhappy65/p/5912460.html](http://www.cnblogs.com/lhyhappy65/p/5912460.html)
@@ -131,6 +131,7 @@
 	用jQuery很好实现：$('#select1 option:selected').val();
 
 **但是IE低版本的浏览器不支持css3伪类的写法，所以得用原生的js实现**
+
 index.js这里，结构主要是这样的：
 
 	$(function(){
